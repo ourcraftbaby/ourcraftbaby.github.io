@@ -3,52 +3,106 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OurCraftBaby</title>
-<meta name="description" content="OurCraftBaby makes Fairwright: Transit Tycoon, a transport tycoon for phones.">
+<title>Fairwright: Transit Tycoon · OurCraftBaby</title>
+<meta name="description" content="Fairwright: Transit Tycoon is a transport tycoon for Android: build roads and railways from 1930 and grow towns into busy cities. By OurCraftBaby.">
+<meta property="og:title" content="Fairwright: Transit Tycoon">
+<meta property="og:description" content="Build roads and railways from 1930 and grow towns into busy cities.">
+<meta property="og:image" content="https://ourcraftbaby.github.io/feature-graphic.png">
+<meta name="theme-color" content="#0f1824">
 <link rel="icon" href="icon.png">
-<style>
-  :root { --bg: #ffffff; --fg: #1b2430; --muted: #5a6573; --rule: #e3e6ea; --card: #f4f6f8; --link: #1f6fb2; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #17222e; --fg: #eef1f4; --muted: #a9b3bf; --rule: #2c3a4a; --card: #1f2c3a; --link: #4fb3ff; } }
-  body { background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-  a { color: var(--link); }
-  header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
-  header img { width: 48px; height: 48px; border-radius: 12px; }
-  header b { font-size: 20px; }
-  .hero { width: 100%; height: auto; border-radius: 16px; display: block; }
-  h1 { font-size: 26px; margin: 24px 0 4px; } h2 { font-size: 19px; margin: 32px 0 8px; }
-  p.lead { color: var(--muted); margin: 0 0 16px; } li { margin: 4px 0; }
-  .status { background: var(--card); border-radius: 12px; padding: 12px 16px; }
-  footer { border-top: 1px solid var(--rule); margin-top: 40px; padding-top: 16px; color: var(--muted); font-size: 14px; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<nav class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="./"><img src="icon.png" alt=""><span>OurCraftBaby</span></a>
+    <div class="nav-links">
+      <a href="#eras">The game</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a class="btn btn-small" href="mailto:ourcraftbaby@gmail.com?subject=Fairwright%20beta">Join the beta</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="pill"><span class="dot"></span>Android · closed beta now</span>
+      <h1>Build the routes.<br>Grow the towns.</h1>
+      <p class="lead"><b>Fairwright: Transit Tycoon</b> is a transport tycoon made for your phone. Start in 1930 with a little money and a map of sleepy towns, and build the roads and railways that carry them into the future.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:ourcraftbaby@gmail.com?subject=Fairwright%20beta">Join the beta</a>
+        <span class="soon">Coming to Google Play</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="feature-graphic.png" alt="Fairwright: Transit Tycoon: a steam train and an electric train on the line" width="1024" height="500">
+    </div>
+  </div>
+</header>
+
 <main>
-<header><img src="icon.png" alt=""><b>OurCraftBaby</b></header>
+  <section class="wrap features">
+    <article class="card">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 9 4M20 20 15 4M12 6v2M12 11v2M12 16v2"/></svg>
+      <h3>Roads and rail</h3>
+      <p>Drag to build roads, track, bridges and tunnels. Plan bus, truck and train lines with a few taps.</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l4-3 4 3v11M13 21V6l3-2 3 2v15M8 13h2M8 17h2M15 9h2M15 13h2M15 17h2"/></svg>
+      <h3>Towns that grow</h3>
+      <p>Serve a town well and it grows, from village to city to metropolis, street by street.</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7M7 19a2 2 0 1 0 0-.1M17 19a2 2 0 1 0 0-.1"/></svg>
+      <h3>Freight chains</h3>
+      <p>Coal, grain, wood, steel, food and goods: feed the factories and the towns that need them thrive.</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2"/></svg>
+      <h3>Made for touch</h3>
+      <p>Designed for phones from the start, with a guide and goals that teach you as you play.</p>
+    </article>
+  </section>
 
-<img class="hero" src="feature-graphic.png" alt="Fairwright: Transit Tycoon: a town, a railway and a steam train">
+  <section class="wrap eras" id="eras">
+    <div class="section-head">
+      <h2>A century on one map</h2>
+      <p>From 1930 to 2050 and beyond. Steam gives way to diesel and electric, and towns change their look as the decades pass, a few buildings at a time.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot wide"><img src="img/era-1930.jpg" alt="A town in 1930: brick and stone buildings with slate roofs" loading="lazy"><figcaption><b>1930</b> Brick, stone and slate</figcaption></figure>
+      <figure class="shot"><img src="img/era-2000.jpg" alt="The same town around 2000: glass towers" loading="lazy"><figcaption><b>2000</b> Glass and concrete</figcaption></figure>
+      <figure class="shot"><img src="img/era-night.jpg" alt="Future towers at night, their windows and trims glowing" loading="lazy"><figcaption><b>2040s</b> Lights on after dark</figcaption></figure>
+      <figure class="shot wide"><img src="img/rail.jpg" alt="A railway crossing the countryside between towns and farms" loading="lazy"><figcaption><b>Between the towns</b> Farms, mills and the line that joins them</figcaption></figure>
+    </div>
+  </section>
 
-<h1>Fairwright: Transit Tycoon</h1>
-<p class="lead">Build roads and railways from 1930 and grow towns into busy cities.</p>
+  <section class="wrap facts">
+    <div><b>Offline</b><span>Plays anywhere</span></div>
+    <div><b>No account</b><span>Just play</span></div>
+    <div><b>No ads</b><span>Ever</span></div>
+    <div><b>English · Español</b><span>Two languages</span></div>
+  </section>
 
-<p>Start with a little money, a map of sleepy towns and industries waiting for a way to move their goods. Lay roads and track, open stops and stations, and plan the lines that carry people and freight, from the first steam engines to modern electric trains. Every route you build changes the map around it.</p>
-
-<ul>
-  <li>Road and rail networks on generated maps</li>
-  <li>Towns that grow from the service and goods you bring</li>
-  <li>Freight chains: coal, grain, livestock, wood, steel, food and goods</li>
-  <li>Made for touch: drag to build, tap to plan lines</li>
-  <li>Plays offline, no account, no ads</li>
-</ul>
-
-<p class="status">Coming to Google Play for Android. A closed beta is running now.</p>
-
-<h2>Contact</h2>
-<p>Questions, feedback or a data request: <a href="mailto:ourcraftbaby@gmail.com">ourcraftbaby@gmail.com</a></p>
-
-<footer>
-  <a href="privacy-policy.html">Privacy policy</a> · © 2026 OurCraftBaby
-</footer>
+  <section class="wrap beta">
+    <div class="beta-box">
+      <div>
+        <h2>Help shape the game</h2>
+        <p>Fairwright is in a closed beta on Google Play. Email us with the Google account you use on your Android phone and we'll send you an invite.</p>
+      </div>
+      <a class="btn" href="mailto:ourcraftbaby@gmail.com?subject=Fairwright%20beta">Join the beta</a>
+    </div>
+  </section>
 </main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <span>© 2026 OurCraftBaby</span>
+    <span><a href="mailto:ourcraftbaby@gmail.com">ourcraftbaby@gmail.com</a> · <a href="privacy-policy.html">Privacy policy</a></span>
+  </div>
+</footer>
+
 </body>
 </html>
