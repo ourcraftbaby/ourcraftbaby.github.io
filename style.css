@@ -114,6 +114,9 @@ h1 { font-size: clamp(46px, 7.2vw, 96px); }
 .shot { margin: 0; }
 .shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 22px; }
 .shot figcaption { margin-top: 12px; font-size: 15px; opacity: .8; }
+.winter { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 2vw, 28px); margin-top: clamp(48px, 7vw, 96px); }
+.winter .wide { grid-column: 1 / -1; }
+.winter .wide img { aspect-ratio: 2000 / 844; }
 .points { display: grid; gap: clamp(26px, 3.4vw, 44px); }
 .points h3 { font-size: clamp(26px, 2.8vw, 38px); margin-bottom: 10px; }
 .points p { margin: 0; max-width: 28em; opacity: .9; }
@@ -125,6 +128,14 @@ h1 { font-size: clamp(46px, 7.2vw, 96px); }
 .beyond h2 { font-size: clamp(44px, 7.4vw, 96px); max-width: 11em; margin-inline: auto; color: var(--lit); }
 .beyond p { margin: 24px auto 32px; max-width: 30em; font-size: 20px; }
 .beyond small { display: block; margin-top: 16px; font-size: 15px; opacity: .8; }
+.join { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 34em; margin-inline: auto; }
+.join input[type=email] { flex: 1 1 15em; min-width: 0; font: inherit; font-size: 18px; color: var(--on); background: color-mix(in oklab, var(--on) 10%, transparent); border: 1.5px solid color-mix(in oklab, var(--on) 45%, transparent); border-radius: 999px; padding: 14px 22px; }
+.join input[type=email]::placeholder { color: color-mix(in oklab, var(--on) 55%, transparent); }
+.join input[type=email]:focus-visible { border-color: var(--lit); }
+.join .btn { border: 0; cursor: pointer; font-family: inherit; background: var(--lit); color: #0c0a16; }
+.join .btn:disabled { opacity: .6; cursor: default; transform: none; }
+.beyond .join-status { flex-basis: 100%; margin: 4px 0 0; font-size: 16px; min-height: 1.4em; }
+.join-status.bad { color: #ffb4a8; }
 
 .foot { background: #05061a; color: #a9aed0; font-size: 15px; padding: 26px 0; }
 .foot .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -133,6 +144,7 @@ h1 { font-size: clamp(46px, 7.2vw, 96px); }
 @media (max-width: 860px) {
   .sky-grid, .ground-grid, .ground-grid.flip { grid-template-columns: 1fr; }
   .ground-grid.flip .shot { order: 0; }
+  .winter { grid-template-columns: 1fr; }
   .brand span { display: none; }
   .scene { height: clamp(210px, 36vh, 320px); }
 }

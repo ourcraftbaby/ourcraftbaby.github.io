@@ -55,7 +55,7 @@
     </div>
     <div class="ground">
       <div class="wrap ground-grid">
-        <figure class="shot"><picture><source srcset="img/era-1930.webp" type="image/webp"><img src="img/era-1930.jpg" width="1200" height="521" loading="lazy" decoding="async" alt="In the game: a town in 1930, brick and stone buildings with slate roofs around a crossroads"></picture><figcaption>In the game, 1930: brick, stone and slate.</figcaption></figure>
+        <figure class="shot"><picture><source srcset="img/era-1930.webp" type="image/webp"><img src="img/era-1930.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="In the game: a steam train pulling out of a small station in the snow at dusk, a factory steaming behind it"></picture><figcaption>In the game, 1930s: steam on a winter evening.</figcaption></figure>
         <div class="points">
           <h2 class="vh">What you do</h2>
           <div><h3>Roads and rail</h3><p>Drag to build roads, track, bridges and tunnels. Plan bus, truck and train lines with a few taps.</p></div>
@@ -75,7 +75,7 @@
     </div>
     <div class="ground">
       <div class="wrap ground-grid flip">
-        <figure class="shot"><picture><source srcset="img/era-2000.webp" type="image/webp"><img src="img/era-2000.jpg" width="1200" height="521" loading="lazy" decoding="async" alt="In the game: the same town around 2000, taller and wider, with a ring road"></picture><figcaption>In the game, 2000: glass and concrete.</figcaption></figure>
+        <figure class="shot"><picture><source srcset="img/era-2000.webp" type="image/webp"><img src="img/era-2000.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="In the game: an electric train waiting under the wires at a snowy station at dusk, lit windows behind it"></picture><figcaption>In the game: an electric train under the wires, a winter evening.</figcaption></figure>
         <div class="points">
           <div><h3>Towns that grow</h3><p>Serve a town well and it grows, from village to city to metropolis, street by street.</p></div>
           <div><h3>Made for touch</h3><p>Designed for phones from the start, with a guide and goals that teach you as you play.</p></div>
@@ -94,11 +94,16 @@
     </div>
     <div class="ground">
       <div class="wrap ground-grid">
-        <figure class="shot"><picture><source srcset="img/era-night.webp" type="image/webp"><img src="img/era-night.jpg" width="1200" height="521" loading="lazy" decoding="async" alt="In the game: future towers at night beside the sea, their windows and trims glowing"></picture><figcaption>In the game, 2040s: towers by the sea.</figcaption></figure>
+        <figure class="shot"><picture><source srcset="img/era-night.webp" type="image/webp"><img src="img/era-night.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="In the game: a modern town at night beside the water, glass-banded buildings and street lamps glowing"></picture><figcaption>In the game, 2030: a summer night by the water.</figcaption></figure>
         <div class="points">
           <div><h3>Yours to keep playing</h3><p>No account to create and nothing to sign in to. It plays offline, anywhere.</p></div>
           <div><h3>No ads, ever</h3><p>In English and Español.</p></div>
         </div>
+      </div>
+      <div class="wrap winter">
+        <figure class="shot wide"><picture><source srcset="img/winter-wide.webp" type="image/webp"><img src="img/winter-wide.jpg" width="2000" height="844" loading="lazy" decoding="async" alt="In the game: the whole town under snow at dusk in 2030, every window lit, beside a half-frozen lake"></picture></figure>
+        <figure class="shot"><picture><source srcset="img/winter-centre.webp" type="image/webp"><img src="img/winter-centre.jpg" width="1400" height="875" loading="lazy" decoding="async" alt="In the game: the town centre on a winter evening, buses at lit stops and a train pulling in"></picture></figure>
+        <figure class="shot"><picture><source srcset="img/winter-towers.webp" type="image/webp"><img src="img/winter-towers.jpg" width="1400" height="875" loading="lazy" decoding="async" alt="In the game: another town under snow in pink evening light, tall blocks with every window lit and a train arriving behind them"></picture><figcaption>In the game, 2030: winter evenings. Seasons and weather change as you play.</figcaption></figure>
       </div>
     </div>
   </section>
@@ -106,15 +111,51 @@
   <section class="beyond" id="beta" data-era="2040" data-year="2050">
     <div class="wrap">
       <h2>Help shape the game</h2>
-      <p>Fairwright is in a closed beta on Google Play. Email us with the Google account you use on your Android phone and we'll send you an invite.</p>
-      <a class="btn" href="mailto:ourcraftbaby@gmail.com?subject=Fairwright%20beta">Join the beta</a>
-      <small>ourcraftbaby@gmail.com · Coming to Google Play</small>
+      <p>Fairwright is in a closed beta on Google Play. Tell us the Google account you use on your Android phone and we'll send you an invite.</p>
+      <!-- No backend yet: the form opens the visitor's mail app with the request filled in. To collect sign-ups directly, point data-endpoint at a URL that accepts a POST with an "email" field. -->
+      <form class="join" id="join" action="mailto:ourcraftbaby@gmail.com" method="get" data-endpoint="">
+        <input type="hidden" name="subject" value="Fairwright beta">
+        <label class="vh" for="join-email">Google account email</label>
+        <input id="join-email" name="body" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" required placeholder="you@gmail.com" aria-describedby="join-note">
+        <button class="btn" type="submit">Join the beta</button>
+        <p class="join-status" id="join-status" role="status" aria-live="polite"></p>
+      </form>
+      <small id="join-note">Used only to send your invite. Or write to ourcraftbaby@gmail.com · Coming to Google Play</small>
     </div>
   </section>
 </main>
 
 <footer class="foot"><div class="wrap"><span>© 2026 OurCraftBaby</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="terms.html">Terms</a></span></div></footer>
 
+<script>
+(() => {
+  const form = document.getElementById('join');
+  if (!form) return;
+  const input = form.querySelector('input[type=email]'), status = document.getElementById('join-status');
+  const say = (text, bad) => { status.textContent = text; status.classList.toggle('bad', !!bad); };
+  input.addEventListener('input', () => { input.setCustomValidity(''); if (status.classList.contains('bad')) say(''); });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = input.value.trim();
+    if (!input.checkValidity() || !email) { say('Enter the email of your Google account, like you@gmail.com.', true); input.focus(); return; }
+    const endpoint = form.dataset.endpoint;
+    if (endpoint) {
+      const button = form.querySelector('button');
+      button.disabled = true; say('Sending…');
+      try {
+        const r = await fetch(endpoint, { method: 'POST', body: new URLSearchParams({ email }) });
+        if (!r.ok) throw new Error(r.status);
+        form.reset(); say('Thanks! We will send your invite to ' + email + '.');
+      } catch (err) { say('That did not go through. Try again, or write to ourcraftbaby@gmail.com.', true); }
+      button.disabled = false;
+      return;
+    }
+    const body = 'Please invite this Google account to the Fairwright beta: ' + email;
+    location.href = 'mailto:ourcraftbaby@gmail.com?subject=' + encodeURIComponent('Fairwright beta') + '&body=' + encodeURIComponent(body);
+    say('Your mail app should open with the request ready: press send there. Nothing opened? Write to ourcraftbaby@gmail.com.');
+  });
+})();
+</script>
 <script>
 // Scenes: each layer (.ly) is slid by its depth as the scene crosses the screen; the train runs on a loop sized to the screen.
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
