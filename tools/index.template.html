@@ -48,7 +48,7 @@
         </div>
         <div>
           <p class="lead">A transport tycoon made for your phone. It starts in 1930, with a little money and a map of sleepy towns, and the roads and railways you build carry them into the future.</p>
-          <div class="cta"><a class="btn" href="#beta">Join the beta</a><span>Android · closed beta now</span></div>
+          <div class="cta"><a class="btn" href="#beta">Join the beta</a><span>Android · open beta on Google Play</span></div>
         </div>
       </div>
       <!--SCENE:1930-->
@@ -111,51 +111,23 @@
   <section class="beyond" id="beta" data-era="2040" data-year="2050">
     <div class="wrap">
       <h2>Help shape the game</h2>
-      <p>Fairwright is in a closed beta on Google Play. Tell us the Google account you use on your Android phone and we'll send you an invite.</p>
-      <!-- No backend yet: the form opens the visitor's mail app with the request filled in. To collect sign-ups directly, point data-endpoint at a URL that accepts a POST with an "email" field. -->
-      <form class="join" id="join" action="mailto:ourcraftbaby@gmail.com" method="get" data-endpoint="">
-        <input type="hidden" name="subject" value="Fairwright beta">
-        <label class="vh" for="join-email">Google account email</label>
-        <input id="join-email" name="body" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" required placeholder="you@gmail.com" aria-describedby="join-note">
-        <button class="btn" type="submit">Join the beta</button>
-        <p class="join-status" id="join-status" role="status" aria-live="polite"></p>
-      </form>
-      <small id="join-note">Used only to send your invite. Or write to ourcraftbaby@gmail.com · Coming to Google Play</small>
+      <p>Fairwright is in open beta on Google Play, and anyone can join. The beta is the full game: you keep it, and every update, when it leaves beta.</p>
+      <ol class="steps">
+        <li>On your Android phone, open the beta page and tap <b>Become a tester</b>.</li>
+        <li>Get Fairwright from Google Play (4.99) and play.</li>
+        <li>Tell us what you think from <b>Menu › Send feedback</b>.</li>
+      </ol>
+      <div class="join">
+        <a class="btn" href="https://play.google.com/apps/testing/com.ourcraftbaby.fairwright">Join the open beta</a>
+        <a class="btn alt" href="https://play.google.com/store/apps/details?id=com.ourcraftbaby.fairwright">See it on Google Play</a>
+      </div>
+      <small>Android only for now · No account, no ads, works offline · Questions: ourcraftbaby@gmail.com</small>
     </div>
   </section>
 </main>
 
 <footer class="foot"><div class="wrap"><span>© 2026 OurCraftBaby</span><span><a href="privacy-policy.html">Privacy policy</a> · <a href="terms.html">Terms</a></span></div></footer>
 
-<script>
-(() => {
-  const form = document.getElementById('join');
-  if (!form) return;
-  const input = form.querySelector('input[type=email]'), status = document.getElementById('join-status');
-  const say = (text, bad) => { status.textContent = text; status.classList.toggle('bad', !!bad); };
-  input.addEventListener('input', () => { input.setCustomValidity(''); if (status.classList.contains('bad')) say(''); });
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = input.value.trim();
-    if (!input.checkValidity() || !email) { say('Enter the email of your Google account, like you@gmail.com.', true); input.focus(); return; }
-    const endpoint = form.dataset.endpoint;
-    if (endpoint) {
-      const button = form.querySelector('button');
-      button.disabled = true; say('Sending…');
-      try {
-        const r = await fetch(endpoint, { method: 'POST', body: new URLSearchParams({ email }) });
-        if (!r.ok) throw new Error(r.status);
-        form.reset(); say('Thanks! We will send your invite to ' + email + '.');
-      } catch (err) { say('That did not go through. Try again, or write to ourcraftbaby@gmail.com.', true); }
-      button.disabled = false;
-      return;
-    }
-    const body = 'Please invite this Google account to the Fairwright beta: ' + email;
-    location.href = 'mailto:ourcraftbaby@gmail.com?subject=' + encodeURIComponent('Fairwright beta') + '&body=' + encodeURIComponent(body);
-    say('Your mail app should open with the request ready: press send there. Nothing opened? Write to ourcraftbaby@gmail.com.');
-  });
-})();
-</script>
 <script>
 // Scenes: each layer (.ly) is slid by its depth as the scene crosses the screen; the train runs on a loop sized to the screen.
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
